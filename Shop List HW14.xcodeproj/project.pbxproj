@@ -3,27 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		BCF4991F267B3387000D129A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF4991E267B3387000D129A /* AppDelegate.swift */; };
 		BCF49921267B3387000D129A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF49920267B3387000D129A /* SceneDelegate.swift */; };
-		BCF49923267B3387000D129A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF49922267B3387000D129A /* ViewController.swift */; };
+		BCF49923267B3387000D129A /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF49922267B3387000D129A /* OnboardViewController.swift */; };
 		BCF49926267B3387000D129A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF49924267B3387000D129A /* Main.storyboard */; };
 		BCF49928267B338A000D129A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCF49927267B338A000D129A /* Assets.xcassets */; };
 		BCF4992B267B338A000D129A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF49929267B338A000D129A /* LaunchScreen.storyboard */; };
+		BCF4994A267B8F0E000D129A /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF49949267B8F0E000D129A /* ShoppingListViewController.swift */; };
+		BCF4995726807B67000D129A /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF4995626807B67000D129A /* ListTableViewCell.swift */; };
+		BE44DDE18D121196F0ACB965 /* Pods_Shop_List_HW14.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0F3144CE9DD84438307D47 /* Pods_Shop_List_HW14.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07BA3B873F1700866AE918EC /* Pods-Shop List HW14.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shop List HW14.release.xcconfig"; path = "Target Support Files/Pods-Shop List HW14/Pods-Shop List HW14.release.xcconfig"; sourceTree = "<group>"; };
+		0AA6AC6C2C1DF45F06676FEB /* Pods-Shop List HW14.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shop List HW14.debug.xcconfig"; path = "Target Support Files/Pods-Shop List HW14/Pods-Shop List HW14.debug.xcconfig"; sourceTree = "<group>"; };
+		4E0F3144CE9DD84438307D47 /* Pods_Shop_List_HW14.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shop_List_HW14.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF4991B267B3387000D129A /* Shop List HW14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shop List HW14.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF4991E267B3387000D129A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCF49920267B3387000D129A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BCF49922267B3387000D129A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BCF49922267B3387000D129A /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		BCF49925267B3387000D129A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCF49927267B338A000D129A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCF4992A267B338A000D129A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCF4992C267B338A000D129A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCF49949267B8F0E000D129A /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		BCF4995626807B67000D129A /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE44DDE18D121196F0ACB965 /* Pods_Shop_List_HW14.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +51,8 @@
 			children = (
 				BCF4991D267B3387000D129A /* Shop List HW14 */,
 				BCF4991C267B3387000D129A /* Products */,
+				DB63168F582BF9192A3FCAE7 /* Pods */,
+				F817FFDBF1007D7B3B439A61 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +67,82 @@
 		BCF4991D267B3387000D129A /* Shop List HW14 */ = {
 			isa = PBXGroup;
 			children = (
-				BCF4991E267B3387000D129A /* AppDelegate.swift */,
-				BCF49920267B3387000D129A /* SceneDelegate.swift */,
-				BCF49922267B3387000D129A /* ViewController.swift */,
-				BCF49924267B3387000D129A /* Main.storyboard */,
-				BCF49927267B338A000D129A /* Assets.xcassets */,
-				BCF49929267B338A000D129A /* LaunchScreen.storyboard */,
-				BCF4992C267B338A000D129A /* Info.plist */,
+				BCF49937267B3577000D129A /* View */,
+				BCF49936267B356C000D129A /* Supportive files */,
+				BCF49935267B3563000D129A /* Resources */,
+				BCF49934267B3542000D129A /* Model */,
+				BCF49933267B352D000D129A /* Controller */,
 			);
 			path = "Shop List HW14";
+			sourceTree = "<group>";
+		};
+		BCF49933267B352D000D129A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BCF49922267B3387000D129A /* OnboardViewController.swift */,
+				BCF49949267B8F0E000D129A /* ShoppingListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BCF49934267B3542000D129A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BCF49935267B3563000D129A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BCF49927267B338A000D129A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BCF49936267B356C000D129A /* Supportive files */ = {
+			isa = PBXGroup;
+			children = (
+				BCF4991E267B3387000D129A /* AppDelegate.swift */,
+				BCF4992C267B338A000D129A /* Info.plist */,
+			);
+			path = "Supportive files";
+			sourceTree = "<group>";
+		};
+		BCF49937267B3577000D129A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCF49920267B3387000D129A /* SceneDelegate.swift */,
+				BCF49938267B35B4000D129A /* Base */,
+				BCF4995626807B67000D129A /* ListTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BCF49938267B35B4000D129A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				BCF49924267B3387000D129A /* Main.storyboard */,
+				BCF49929267B338A000D129A /* LaunchScreen.storyboard */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		DB63168F582BF9192A3FCAE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0AA6AC6C2C1DF45F06676FEB /* Pods-Shop List HW14.debug.xcconfig */,
+				07BA3B873F1700866AE918EC /* Pods-Shop List HW14.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F817FFDBF1007D7B3B439A61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E0F3144CE9DD84438307D47 /* Pods_Shop_List_HW14.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +152,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCF4992F267B338A000D129A /* Build configuration list for PBXNativeTarget "Shop List HW14" */;
 			buildPhases = (
+				A0FDCA03225BD5F235822435 /* [CP] Check Pods Manifest.lock */,
 				BCF49917267B3387000D129A /* Sources */,
 				BCF49918267B3387000D129A /* Frameworks */,
 				BCF49919267B3387000D129A /* Resources */,
+				4463FA28E5530835E758D37B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,14 +212,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4463FA28E5530835E758D37B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Shop List HW14/Pods-Shop List HW14-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Shop List HW14/Pods-Shop List HW14-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Shop List HW14/Pods-Shop List HW14-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0FDCA03225BD5F235822435 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Shop List HW14-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BCF49917267B3387000D129A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCF49923267B3387000D129A /* ViewController.swift in Sources */,
+				BCF4994A267B8F0E000D129A /* ShoppingListViewController.swift in Sources */,
+				BCF49923267B3387000D129A /* OnboardViewController.swift in Sources */,
 				BCF4991F267B3387000D129A /* AppDelegate.swift in Sources */,
 				BCF49921267B3387000D129A /* SceneDelegate.swift in Sources */,
+				BCF4995726807B67000D129A /* ListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,12 +407,13 @@
 		};
 		BCF49930267B338A000D129A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AA6AC6C2C1DF45F06676FEB /* Pods-Shop List HW14.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 832H9LUWZZ;
-				INFOPLIST_FILE = "Shop List HW14/Info.plist";
+				INFOPLIST_FILE = "Shop List HW14/Supportive files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,12 +427,13 @@
 		};
 		BCF49931267B338A000D129A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07BA3B873F1700866AE918EC /* Pods-Shop List HW14.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 832H9LUWZZ;
-				INFOPLIST_FILE = "Shop List HW14/Info.plist";
+				INFOPLIST_FILE = "Shop List HW14/Supportive files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
