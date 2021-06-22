@@ -18,6 +18,9 @@ class floatingAddUIButton: UIButton {
     private var fontSize: CGFloat
     private let linehightCompensator: CGFloat
     
+    let delegate: navigationBarVisibilityProtocol?
+
+    
     private let highlitedTitleColor = UIColor(displayP3Red: 255/255,
                                          green: 255/255,
                                          blue: 255/255,
@@ -29,7 +32,10 @@ class floatingAddUIButton: UIButton {
                                       alpha: 0.33).cgColor
     
     //MARK: - initialize
-    init() {
+    init(_ navBarDelegate: navigationBarVisibilityProtocol?) {
+        
+        delegate = navBarDelegate
+        
         buttonDiameter = screenWidthPercent * 20
         fontSize = buttonDiameter / 2
         linehightCompensator = -fontSize / 8
@@ -39,6 +45,7 @@ class floatingAddUIButton: UIButton {
                                  width: screenWidthPercent * 20,
                                  height: screenWidthPercent * 20))
         //styling
+        addTarget(self, action: #selector(zoomIn(button:)), for: .touchUpInside)
         makeButtonround()
         configureTitle(title: "+")
         setNormalStateStyle()
@@ -75,5 +82,21 @@ class floatingAddUIButton: UIButton {
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowOpacity = 1
         layer.shadowRadius = 6
+    }
+}
+
+fileprivate extension UIView  {
+    
+    @objc func zoomIn(button: floatingAddUIButton) {
+        button.setTitle("", for: .normal)
+        //button.removeTarget(nil, action: nil, for: .allEvents)
+        button.delegate?.setNavigationBarVisibility(visible: false, animated: true)
+        
+        let originalTransform = self.transform
+        let scaledTransform = originalTransform.scaledBy(x: 20, y: 20)
+        let scaledAndTranslatedTransform = scaledTransform.translatedBy(x: 0.0, y: 0.0)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.transform = scaledAndTranslatedTransform
+        })
     }
 }

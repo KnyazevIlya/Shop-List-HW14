@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC56B3EB2681EC7000550963 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC56B3EA2681EC7000550963 /* StorageManager.swift */; };
+		BC56B3F42681F1FE00550963 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC56B3F32681F1FE00550963 /* ShoppingList.swift */; };
+		BC56B3F72681F2A100550963 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC56B3F62681F2A100550963 /* Purchase.swift */; };
 		BCF4991F267B3387000D129A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF4991E267B3387000D129A /* AppDelegate.swift */; };
 		BCF49921267B3387000D129A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF49920267B3387000D129A /* SceneDelegate.swift */; };
 		BCF49923267B3387000D129A /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF49922267B3387000D129A /* OnboardViewController.swift */; };
@@ -16,6 +19,7 @@
 		BCF4994A267B8F0E000D129A /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF49949267B8F0E000D129A /* ShoppingListViewController.swift */; };
 		BCF4995726807B67000D129A /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF4995626807B67000D129A /* ListTableViewCell.swift */; };
 		BCF4995A268087DE000D129A /* floatingAddUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF49959268087DE000D129A /* floatingAddUIButton.swift */; };
+		BCF4AC2D268134360038422C /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF4AC2C268134360038422C /* AddListViewController.swift */; };
 		BE44DDE18D121196F0ACB965 /* Pods_Shop_List_HW14.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0F3144CE9DD84438307D47 /* Pods_Shop_List_HW14.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +27,9 @@
 		07BA3B873F1700866AE918EC /* Pods-Shop List HW14.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shop List HW14.release.xcconfig"; path = "Target Support Files/Pods-Shop List HW14/Pods-Shop List HW14.release.xcconfig"; sourceTree = "<group>"; };
 		0AA6AC6C2C1DF45F06676FEB /* Pods-Shop List HW14.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shop List HW14.debug.xcconfig"; path = "Target Support Files/Pods-Shop List HW14/Pods-Shop List HW14.debug.xcconfig"; sourceTree = "<group>"; };
 		4E0F3144CE9DD84438307D47 /* Pods_Shop_List_HW14.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shop_List_HW14.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC56B3EA2681EC7000550963 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		BC56B3F32681F1FE00550963 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
+		BC56B3F62681F2A100550963 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		BCF4991B267B3387000D129A /* Shop List HW14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shop List HW14.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF4991E267B3387000D129A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCF49920267B3387000D129A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +41,7 @@
 		BCF49949267B8F0E000D129A /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		BCF4995626807B67000D129A /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		BCF49959268087DE000D129A /* floatingAddUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = floatingAddUIButton.swift; sourceTree = "<group>"; };
+		BCF4AC2C268134360038422C /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC56B3E92681EC6200550963 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BC56B3EA2681EC7000550963 /* StorageManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		BCF49912267B3387000D129A = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +85,7 @@
 		BCF4991D267B3387000D129A /* Shop List HW14 */ = {
 			isa = PBXGroup;
 			children = (
+				BC56B3E92681EC6200550963 /* Helpers */,
 				BCF49937267B3577000D129A /* View */,
 				BCF49936267B356C000D129A /* Supportive files */,
 				BCF49935267B3563000D129A /* Resources */,
@@ -83,6 +100,7 @@
 			children = (
 				BCF49922267B3387000D129A /* OnboardViewController.swift */,
 				BCF49949267B8F0E000D129A /* ShoppingListViewController.swift */,
+				BCF4AC2C268134360038422C /* AddListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -90,6 +108,8 @@
 		BCF49934267B3542000D129A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BC56B3F32681F1FE00550963 /* ShoppingList.swift */,
+				BC56B3F62681F2A100550963 /* Purchase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,9 +283,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCF4994A267B8F0E000D129A /* ShoppingListViewController.swift in Sources */,
+				BC56B3F42681F1FE00550963 /* ShoppingList.swift in Sources */,
+				BC56B3F72681F2A100550963 /* Purchase.swift in Sources */,
 				BCF49923267B3387000D129A /* OnboardViewController.swift in Sources */,
+				BCF4AC2D268134360038422C /* AddListViewController.swift in Sources */,
 				BCF4991F267B3387000D129A /* AppDelegate.swift in Sources */,
 				BCF49921267B3387000D129A /* SceneDelegate.swift in Sources */,
+				BC56B3EB2681EC7000550963 /* StorageManager.swift in Sources */,
 				BCF4995726807B67000D129A /* ListTableViewCell.swift in Sources */,
 				BCF4995A268087DE000D129A /* floatingAddUIButton.swift in Sources */,
 			);
