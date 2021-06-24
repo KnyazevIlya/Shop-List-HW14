@@ -187,8 +187,8 @@
                     <navigationItem key="navigationItem" title="My lists" id="0OK-7i-Cy6"/>
                     <connections>
                         <outlet property="tableView" destination="5VL-CD-KVK" id="qHC-hW-BHC"/>
-                        <segue destination="mdU-Iz-R0K" kind="show" identifier="toDetailedList" id="ruK-6E-Z9z"/>
                         <segue destination="lzQ-Bm-G0j" kind="presentation" identifier="addList" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="PtE-HU-qv5"/>
+                        <segue destination="mdU-Iz-R0K" kind="show" identifier="toDetailedList" id="PRM-I8-JPH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lP6-RX-dQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -291,7 +291,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="purchaseCell" rowHeight="60" id="oxo-yV-eeo">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="purchaseCell" rowHeight="60" id="oxo-yV-eeo" customClass="PurchaseTableViewCell" customModule="Shop_List_HW14" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oxo-yV-eeo" id="Gws-of-mzg">
@@ -331,24 +331,65 @@
                                                 <constraint firstItem="R0g-jf-faI" firstAttribute="top" secondItem="Gws-of-mzg" secondAttribute="topMargin" constant="5" id="quO-V6-lha"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkBox" destination="fMF-7C-AlL" id="3c5-Vt-MDd"/>
+                                            <outlet property="purchaseAmountLabel" destination="ajv-RG-mEu" id="jd0-4e-eWb"/>
+                                            <outlet property="purcheseNameLabel" destination="SzG-m6-nhD" id="P6d-C6-VAM"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Z0S-sq-ykG" userLabel="Empty list greeting">
+                                <rect key="frame" x="16" y="158" width="382" height="401.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shoppingList" translatesAutoresizingMaskIntoConstraints="NO" id="tdK-kD-PBY">
+                                        <rect key="frame" x="41" y="0.0" width="300" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="6ZH-SR-6Oi"/>
+                                            <constraint firstAttribute="width" secondItem="tdK-kD-PBY" secondAttribute="height" multiplier="1:1" id="BYv-qu-a8W"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's empty here Add some purchases" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="344-9f-Eqp">
+                                        <rect key="frame" x="77.5" y="305" width="227" height="62.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is simple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3a-J4-dD7">
+                                        <rect key="frame" x="123" y="372.5" width="136.5" height="29"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="25"/>
+                                        <color key="textColor" red="0.2470588235" green="0.80392156859999997" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5pB-sn-APd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" red="0.2470588235" green="0.80392156859999997" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Z0S-sq-ykG" firstAttribute="top" secondItem="5pB-sn-APd" secondAttribute="top" constant="70" id="1BX-Un-X4n"/>
+                            <constraint firstItem="5pB-sn-APd" firstAttribute="trailing" secondItem="Z0S-sq-ykG" secondAttribute="trailing" constant="16" id="Co5-1Q-3bh"/>
                             <constraint firstItem="5pB-sn-APd" firstAttribute="bottom" secondItem="FvW-7v-bAu" secondAttribute="bottom" id="Qqe-XB-CIC"/>
                             <constraint firstItem="5pB-sn-APd" firstAttribute="trailing" secondItem="FvW-7v-bAu" secondAttribute="trailing" id="T2Y-bj-1pf"/>
+                            <constraint firstItem="Z0S-sq-ykG" firstAttribute="leading" secondItem="Qh4-Jf-s92" secondAttribute="leading" constant="16" id="cC4-JJ-xOb"/>
                             <constraint firstItem="FvW-7v-bAu" firstAttribute="leading" secondItem="5pB-sn-APd" secondAttribute="leading" id="sD6-Wn-2Yk"/>
                             <constraint firstItem="FvW-7v-bAu" firstAttribute="top" secondItem="5pB-sn-APd" secondAttribute="top" id="t6C-MN-GKc"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="FvW-7v-bAu"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="List name" id="hSR-XT-ndL"/>
+                    <connections>
+                        <outlet property="emtpyListGreetingStackView" destination="Z0S-sq-ykG" id="Lp9-zY-HjP"/>
+                        <outlet property="tableView" destination="FvW-7v-bAu" id="vGR-Sb-vrt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lYK-9C-aeP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5138" y="124"/>
+            <point key="canvasLocation" x="5244.9275362318849" y="123.88392857142857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EBF-Zn-L4B">
@@ -371,13 +412,16 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="PtE-HU-qv5"/>
         <segue reference="eFa-3t-DH3"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.2470588235" green="0.80392156859999997" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="ellipsis" width="256" height="256"/>
         <image name="food package" width="207" height="187.5"/>
         <image name="isNotchecked" width="256" height="256"/>
+        <image name="shoppingList" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

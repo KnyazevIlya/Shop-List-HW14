@@ -32,7 +32,7 @@ class floatingAddUIButton: UIButton {
                                       alpha: 0.33).cgColor
     
     //MARK: - initialize
-    init(_ navBarDelegate: navigationBarVisibilityProtocol?) {
+    init(_ navBarDelegate: navigationBarVisibilityProtocol? = nil) {
         
         delegate = navBarDelegate
         

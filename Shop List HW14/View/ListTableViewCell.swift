@@ -25,7 +25,7 @@ class ListTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         nameTextField.delegate = self
-        nameTextField.isUserInteractionEnabled = false
+        nameTextField.isEnabled = false
         
         //subview style
         subview.layer.cornerRadius = 5
@@ -66,6 +66,7 @@ class ListTableViewCell: UITableViewCell {
         let delete = UIAction(title: "Delete") { _ in
             print("delete tapped")
             self.deleteListAction()
+            self.delegate?.reloadData()
         }
         
         button.showsMenuAsPrimaryAction = true
@@ -78,7 +79,7 @@ class ListTableViewCell: UITableViewCell {
     }
     
     private func renameListAction() {
-        nameTextField.isUserInteractionEnabled = true
+        nameTextField.isEnabled = true
         nameTextField.becomeFirstResponder()
     }
     
@@ -88,7 +89,7 @@ class ListTableViewCell: UITableViewCell {
 //MARK: - text field behaviour
 extension ListTableViewCell: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.isUserInteractionEnabled = false
+        textField.isEnabled = false
         textField.resignFirstResponder()
         
         updateListName()
@@ -97,7 +98,8 @@ extension ListTableViewCell: UITextFieldDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        nameTextField.isUserInteractionEnabled = false
+        super.touchesBegan(touches, with: event)
+        nameTextField.isEnabled = false
         nameTextField.endEditing(true)
     }
 }

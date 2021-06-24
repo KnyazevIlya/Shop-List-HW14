@@ -25,7 +25,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate  {
     
     //MARK: - private methods
     private func createShoppingList() {
-        let listName: String = listNameTextfield.text == nil ? "New list" : listNameTextfield.text!
+        let listName: String = listNameTextfield.text == "" ? "New list" : listNameTextfield.text!
         let newShoppingList = ShoppingList(value: [listName, 0, 0, Date(), false])
         
         DispatchQueue.main.async {

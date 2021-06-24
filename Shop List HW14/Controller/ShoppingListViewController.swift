@@ -37,6 +37,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         tableView.delegate = self
         tableView.dataSource = self
+        
         /*tableView.dragInteractionEnabled = true
         tableView.dragDelegate = self
         tableView.dropDelegate = self*/
@@ -65,6 +66,17 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 StorageManager.saveShoppingList([shoppingList])
             }*/
         })
+    }
+    
+//MARK: - navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailedList" {
+            if let indexPath = sender as? IndexPath {
+                let vc = segue.destination as! DetailedListViewController
+                vc.shoppingList = shoppingLists[indexPath.row]
+                vc.purchases = shoppingLists[indexPath.row].purchases
+            }
+        }
     }
 }
 
@@ -101,6 +113,11 @@ extension ShoppingListViewController {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toDetailedList", sender: indexPath)
+    }
+    
 }
 
 //MARK: - navigationBarVisibilityProtocol extension
