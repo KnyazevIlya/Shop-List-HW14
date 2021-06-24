@@ -10,6 +10,8 @@
 		BC56B3EB2681EC7000550963 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC56B3EA2681EC7000550963 /* StorageManager.swift */; };
 		BC56B3F42681F1FE00550963 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC56B3F32681F1FE00550963 /* ShoppingList.swift */; };
 		BC56B3F72681F2A100550963 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC56B3F62681F2A100550963 /* Purchase.swift */; };
+		BC6174A82684917300CBA0D7 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6174A72684917300CBA0D7 /* CheckBox.swift */; };
+		BC6174AB26849BD100CBA0D7 /* DetailedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6174AA26849BD100CBA0D7 /* DetailedListViewController.swift */; };
 		BCF4991F267B3387000D129A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF4991E267B3387000D129A /* AppDelegate.swift */; };
 		BCF49921267B3387000D129A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF49920267B3387000D129A /* SceneDelegate.swift */; };
 		BCF49923267B3387000D129A /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF49922267B3387000D129A /* OnboardViewController.swift */; };
@@ -30,6 +32,8 @@
 		BC56B3EA2681EC7000550963 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		BC56B3F32681F1FE00550963 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 		BC56B3F62681F2A100550963 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
+		BC6174A72684917300CBA0D7 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		BC6174AA26849BD100CBA0D7 /* DetailedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedListViewController.swift; sourceTree = "<group>"; };
 		BCF4991B267B3387000D129A /* Shop List HW14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shop List HW14.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF4991E267B3387000D129A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCF49920267B3387000D129A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 				BCF49922267B3387000D129A /* OnboardViewController.swift */,
 				BCF49949267B8F0E000D129A /* ShoppingListViewController.swift */,
 				BCF4AC2C268134360038422C /* AddListViewController.swift */,
+				BC6174AA26849BD100CBA0D7 /* DetailedListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 				BCF49938267B35B4000D129A /* Base */,
 				BCF4995626807B67000D129A /* ListTableViewCell.swift */,
 				BCF49959268087DE000D129A /* floatingAddUIButton.swift */,
+				BC6174A72684917300CBA0D7 /* CheckBox.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,6 +291,8 @@
 				BCF4994A267B8F0E000D129A /* ShoppingListViewController.swift in Sources */,
 				BC56B3F42681F1FE00550963 /* ShoppingList.swift in Sources */,
 				BC56B3F72681F2A100550963 /* Purchase.swift in Sources */,
+				BC6174A82684917300CBA0D7 /* CheckBox.swift in Sources */,
+				BC6174AB26849BD100CBA0D7 /* DetailedListViewController.swift in Sources */,
 				BCF49923267B3387000D129A /* OnboardViewController.swift in Sources */,
 				BCF4AC2D268134360038422C /* AddListViewController.swift in Sources */,
 				BCF4991F267B3387000D129A /* AppDelegate.swift in Sources */,

@@ -19,6 +19,10 @@ class AddListViewController: UIViewController, UITextFieldDelegate  {
         listNameTextfield.becomeFirstResponder()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     //MARK: - private methods
     private func createShoppingList() {
         let listName: String = listNameTextfield.text == nil ? "New list" : listNameTextfield.text!

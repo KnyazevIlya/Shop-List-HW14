@@ -13,7 +13,7 @@ protocol navigationBarVisibilityProtocol {
 }
 
 
-class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - outlets
     @IBOutlet var tableView: UITableView!
@@ -31,6 +31,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationBarVisibility(visible: true, animated: true)
+        
         shoppingLists = StorageManager.realm.objects(ShoppingList.self)
         
         tableView.delegate = self
@@ -45,6 +47,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         view.addSubview(floatingButton)
     }
     
+//MARK: - methods
     @objc func performAddListSegue() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6, execute: {
             self.performSegue(withIdentifier: "addList", sender: nil)
@@ -65,6 +68,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
 }
 
+
 //MARK: - table view delegate
 extension ShoppingListViewController {
     
@@ -81,9 +85,13 @@ extension ShoppingListViewController {
         
         let shoppingList = shoppingLists[indexPath.row]
         
-        cell.nameLabel.text = shoppingList.name
+        cell.nameTextField.text = shoppingList.name
+        
         cell.boughtRatioLabel.text = shoppingList.maxLoad == 0 ? "empty" : "\(shoppingList.load)/\(shoppingList.maxLoad)"
         cell.purchasesProgressView.progress = shoppingList.maxLoad == 0 ? 0 : Float(shoppingList.load) / Float(shoppingList.maxLoad)
+        cell.shoppingList = shoppingList
+        cell.delegate = tableView
+        cell.cellIndex = indexPath
         
         cell.selectionStyle = .none
         
@@ -93,7 +101,6 @@ extension ShoppingListViewController {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-    
 }
 
 //MARK: - navigationBarVisibilityProtocol extension
