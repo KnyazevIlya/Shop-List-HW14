@@ -35,9 +35,13 @@ class PurchaseTableViewCell: UITableViewCell {
         
         checkBox.isChecked = purchase.isCompleted
         if purchase.isCompleted {
-            backgroundColor = .systemGray4
+            backgroundColor = UIColor(hex: "EBFAEF")
+            purcheseNameLabel.textColor = .systemGray
+            purchaseAmountLabel.textColor = .systemGray
         } else {
             backgroundColor = .white
+            purcheseNameLabel.textColor = .black
+            purchaseAmountLabel.textColor = .black
         }
     }
     

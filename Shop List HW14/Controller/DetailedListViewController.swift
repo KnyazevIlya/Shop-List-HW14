@@ -34,6 +34,10 @@ class DetailedListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     //MARK: - initial styling
+    private func configurateTableView() {
+        tableView.backgroundColor = UIColor(hex: "EBFAEF")
+    }
+    
     private func configurateFloatingButton() {
         floatingButton.addTarget(self, action: #selector(toAddPurchaseMenu), for: .touchUpInside)
         view.addSubview(floatingButton)
