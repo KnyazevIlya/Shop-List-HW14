@@ -32,7 +32,7 @@ class floatingAddUIButton: UIButton {
                                       alpha: 0.33).cgColor
     
     //MARK: - initialize
-    init(_ navBarDelegate: navigationBarVisibilityProtocol? = nil) {
+    init(_ navBarDelegate: navigationBarVisibilityProtocol? = nil, zoomOnTouch: Bool = false) {
         
         delegate = navBarDelegate
         
@@ -45,7 +45,10 @@ class floatingAddUIButton: UIButton {
                                  width: screenWidthPercent * 20,
                                  height: screenWidthPercent * 20))
         //styling
-        addTarget(self, action: #selector(zoomIn(button:)), for: .touchUpInside)
+        if zoomOnTouch {
+            addTarget(self, action: #selector(zoomIn(button:)), for: .touchUpInside)
+        }
+        
         makeButtonround()
         configureTitle(title: "+")
         setNormalStateStyle()
@@ -89,7 +92,6 @@ fileprivate extension UIView  {
     
     @objc func zoomIn(button: floatingAddUIButton) {
         button.setTitle("", for: .normal)
-        //button.removeTarget(nil, action: nil, for: .allEvents)
         button.delegate?.setNavigationBarVisibility(visible: false, animated: true)
         
         let originalTransform = self.transform

@@ -5,10 +5,15 @@ import RealmSwift
 class StorageManager {
     
     enum listProperty {
-        case name, load, maxLoad, isCopleted
+        case name, load, maxLoad, isCopleted, purchase
+    }
+    
+    enum PurchaseProperty {
+        case name, amount, isCompleted, mesurement
     }
     
     static let realm = try! Realm()
+    static let shared = StorageManager()
     
     static func saveShoppingList(_ shoppingLists: [ShoppingList]) {
         try! realm.write {
@@ -26,26 +31,48 @@ class StorageManager {
         try! realm.write {
             switch property {
             case .name:
-                if let name = tryToCast(value, type: String.self) {
+                if let name = shared.tryToCast(value, type: String.self) {
                     shoppingList.name = name
                 }
             case .load:
-                if let load = tryToCast(value, type: Int.self) {
+                if let load = shared.tryToCast(value, type: Int.self) {
                     shoppingList.load = load
                 }
             case .maxLoad:
-                if let maxLoad = tryToCast(value, type: Int.self) {
+                if let maxLoad = shared.tryToCast(value, type: Int.self) {
                     shoppingList.maxLoad = maxLoad
                 }
             case .isCopleted:
-                if let isComleted = tryToCast(value, type: Bool.self) {
+                if let isComleted = shared.tryToCast(value, type: Bool.self) {
                     shoppingList.isCompleted = isComleted
+                }
+            case .purchase:
+                if let purchase = shared.tryToCast(value, type: Purchase.self) {
+                    shoppingList.purchases.append(purchase)
                 }
             }
         }
     }
     
-    static func tryToCast<T>(_ value: Any, type: T.Type) -> T? {
+    static func updatePurchase(inList shoppingList: ShoppingList, atIndex index: Int, property: PurchaseProperty, value: Any) {
+        
+        try! realm.write {
+            switch property {
+            case .name:
+                if let name = shared.tryToCast(value, type: String.self) {
+                    shoppingList.purchases[index].name = name
+                }
+            case .isCompleted:
+                if let isCompleted = shared.tryToCast(value, type: Bool.self) {
+                    shoppingList.purchases[index].isCompleted = isCompleted
+                }
+            default:
+                return 
+            }
+        }
+    }
+    
+    func tryToCast<T>(_ value: Any, type: T.Type) -> T? {
         guard let castedValue = value as? T else { return nil }
         return castedValue
     }

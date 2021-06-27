@@ -12,6 +12,10 @@ protocol navigationBarVisibilityProtocol {
     func setNavigationBarVisibility(visible state: Bool, animated: Bool)
 }
 
+protocol dataReloadProtocol {
+    func reloadData()
+}
+
 
 class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -42,7 +46,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         tableView.dragDelegate = self
         tableView.dropDelegate = self*/
         
-        let floatingButton = floatingAddUIButton(self)
+        let floatingButton = floatingAddUIButton(self, zoomOnTouch: true)
         floatingButton.addTarget(self, action: #selector(performAddListSegue), for: .touchUpInside)
         
         view.addSubview(floatingButton)
@@ -52,19 +56,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     @objc func performAddListSegue() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6, execute: {
             self.performSegue(withIdentifier: "addList", sender: nil)
-            
-            /*try! StorageManager.realm.write {
-                StorageManager.realm.deleteAll()
-            }
-            
-            let shoppingList = ShoppingList(value: ["MyList", 10, 17, Date(), false])
-            
-            let bread = Purchase(value: ["bread", 3, Date(), false, "loave"])
-            shoppingList.purchases.append(bread)
-            
-            DispatchQueue.main.async {
-                StorageManager.saveShoppingList([shoppingList])
-            }*/
         })
     }
     
@@ -75,6 +66,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 let vc = segue.destination as! DetailedListViewController
                 vc.shoppingList = shoppingLists[indexPath.row]
                 vc.purchases = shoppingLists[indexPath.row].purchases
+                vc.shoppingListIndex = indexPath.row
+                vc.shoppingListDelegate = self
             }
         }
     }
@@ -99,7 +92,7 @@ extension ShoppingListViewController {
         
         cell.nameTextField.text = shoppingList.name
         
-        cell.boughtRatioLabel.text = shoppingList.maxLoad == 0 ? "empty" : "\(shoppingList.load)/\(shoppingList.maxLoad)"
+        cell.boughtRatioLabel.text = "\(shoppingList.load)/\(shoppingList.maxLoad)"
         cell.purchasesProgressView.progress = shoppingList.maxLoad == 0 ? 0 : Float(shoppingList.load) / Float(shoppingList.maxLoad)
         cell.shoppingList = shoppingList
         cell.delegate = tableView
@@ -120,7 +113,7 @@ extension ShoppingListViewController {
     
 }
 
-//MARK: - navigationBarVisibilityProtocol extension
+//MARK: - navigationBarVisibilityProtocol
 extension ShoppingListViewController: navigationBarVisibilityProtocol {
     
     func setNavigationBarVisibility(visible state: Bool, animated: Bool) {
@@ -128,4 +121,10 @@ extension ShoppingListViewController: navigationBarVisibilityProtocol {
     }
 }
 
-
+//MARK: - dataReloadProtocol
+extension ShoppingListViewController: dataReloadProtocol {
+    func reloadData() {
+        shoppingLists = StorageManager.realm.objects(ShoppingList.self)
+        tableView.reloadData()
+    }
+}

@@ -13,6 +13,7 @@
 		BC6174A82684917300CBA0D7 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6174A72684917300CBA0D7 /* CheckBox.swift */; };
 		BC6174AB26849BD100CBA0D7 /* DetailedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6174AA26849BD100CBA0D7 /* DetailedListViewController.swift */; };
 		BC6174AE2684B43A00CBA0D7 /* PurchaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6174AD2684B43A00CBA0D7 /* PurchaseTableViewCell.swift */; };
+		BC6174B8268880C300CBA0D7 /* addPurchaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6174B7268880C300CBA0D7 /* addPurchaseUIViewController.swift */; };
 		BCF4991F267B3387000D129A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF4991E267B3387000D129A /* AppDelegate.swift */; };
 		BCF49921267B3387000D129A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF49920267B3387000D129A /* SceneDelegate.swift */; };
 		BCF49923267B3387000D129A /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF49922267B3387000D129A /* OnboardViewController.swift */; };
@@ -36,6 +37,7 @@
 		BC6174A72684917300CBA0D7 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		BC6174AA26849BD100CBA0D7 /* DetailedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedListViewController.swift; sourceTree = "<group>"; };
 		BC6174AD2684B43A00CBA0D7 /* PurchaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseTableViewCell.swift; sourceTree = "<group>"; };
+		BC6174B7268880C300CBA0D7 /* addPurchaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPurchaseUIViewController.swift; sourceTree = "<group>"; };
 		BCF4991B267B3387000D129A /* Shop List HW14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shop List HW14.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF4991E267B3387000D129A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCF49920267B3387000D129A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,24 @@
 				BC56B3EA2681EC7000550963 /* StorageManager.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BC6174B026851C8A00CBA0D7 /* UITableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				BCF4995626807B67000D129A /* ListTableViewCell.swift */,
+				BC6174AD2684B43A00CBA0D7 /* PurchaseTableViewCell.swift */,
+			);
+			path = UITableViewCells;
+			sourceTree = "<group>";
+		};
+		BC6174B126851CA300CBA0D7 /* UIButtons */ = {
+			isa = PBXGroup;
+			children = (
+				BCF49959268087DE000D129A /* floatingAddUIButton.swift */,
+				BC6174A72684917300CBA0D7 /* CheckBox.swift */,
+			);
+			path = UIButtons;
 			sourceTree = "<group>";
 		};
 		BCF49912267B3387000D129A = {
@@ -108,6 +128,7 @@
 				BCF49949267B8F0E000D129A /* ShoppingListViewController.swift */,
 				BCF4AC2C268134360038422C /* AddListViewController.swift */,
 				BC6174AA26849BD100CBA0D7 /* DetailedListViewController.swift */,
+				BC6174B7268880C300CBA0D7 /* addPurchaseUIViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -141,12 +162,10 @@
 		BCF49937267B3577000D129A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC6174B126851CA300CBA0D7 /* UIButtons */,
+				BC6174B026851C8A00CBA0D7 /* UITableViewCells */,
 				BCF49920267B3387000D129A /* SceneDelegate.swift */,
 				BCF49938267B35B4000D129A /* Base */,
-				BCF4995626807B67000D129A /* ListTableViewCell.swift */,
-				BCF49959268087DE000D129A /* floatingAddUIButton.swift */,
-				BC6174A72684917300CBA0D7 /* CheckBox.swift */,
-				BC6174AD2684B43A00CBA0D7 /* PurchaseTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -291,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC6174B8268880C300CBA0D7 /* addPurchaseUIViewController.swift in Sources */,
 				BCF4994A267B8F0E000D129A /* ShoppingListViewController.swift in Sources */,
 				BC56B3F42681F1FE00550963 /* ShoppingList.swift in Sources */,
 				BC56B3F72681F2A100550963 /* Purchase.swift in Sources */,
