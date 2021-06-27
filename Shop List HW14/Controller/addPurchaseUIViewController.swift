@@ -15,6 +15,7 @@ class addPurchaseUIViewController: UIViewController, UITextFieldDelegate{
     
     var shoppingList: ShoppingList?
     var purchasesTableView: UITableView?
+    var shoppingListDelegate: dataReloadProtocol?
     
     override func viewDidLoad() {
         configurateTextFieldsDelegate()
@@ -29,6 +30,7 @@ class addPurchaseUIViewController: UIViewController, UITextFieldDelegate{
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switchTextField(textField: textField)
         return textField.resignFirstResponder()
     }
     
@@ -57,9 +59,11 @@ class addPurchaseUIViewController: UIViewController, UITextFieldDelegate{
         view.endEditing(true)
     }
     
+    //MARK: - db managing
     private func savePurchase() {
         guard let shoppingList = shoppingList,
-              let purchasesTableView = purchasesTableView else { return }
+              let purchasesTableView = purchasesTableView,
+              let shoppingListDelegate = shoppingListDelegate else { return }
         
         let name = nameTextField.text ?? "New purchase"
         let amount = Int(amountTextField.text ?? "") ?? 1
@@ -71,6 +75,8 @@ class addPurchaseUIViewController: UIViewController, UITextFieldDelegate{
             StorageManager.updateList(shoppingList, property: .purchase, value: purchase)
             StorageManager.updateList(shoppingList, property: .maxLoad, value: shoppingList.maxLoad + 1)
             purchasesTableView.reloadData()
+            shoppingListDelegate.reloadData()
         }
     }
 }
+

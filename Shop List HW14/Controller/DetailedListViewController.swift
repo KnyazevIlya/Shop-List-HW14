@@ -14,16 +14,6 @@ class DetailedListViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var tableView: UITableView!
     @IBOutlet var emptyListGreetingStackView: UIStackView!
     
-    @IBOutlet var semiTransparentView: UIView!
-    @IBOutlet var addMenu: SpringView!
-    
-    @IBOutlet var addMenuHeightConstraint: NSLayoutConstraint!
-    @IBOutlet var hideButton: UIButton!
-    @IBOutlet var purchaseNameTextField: UITextField!
-    @IBOutlet var amountStepperLabel: UILabel!
-    @IBOutlet var amountStepper: UIStepper!
-    @IBOutlet var addToListButton: UIButton!
-    
     var shoppingList: ShoppingList!
     var purchases: List<Purchase>?
     var shoppingListIndex: Int?
@@ -38,7 +28,6 @@ class DetailedListViewController: UIViewController, UITableViewDelegate, UITable
         
         tableView.dataSource = self
         tableView.delegate = self
-        purchaseNameTextField.delegate = self
         
         configurateInitialVisibility()
         configurateFloatingButton()
@@ -51,8 +40,6 @@ class DetailedListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     private func configurateInitialVisibility() {
-        semiTransparentView.isHidden = true
-        addMenu.isHidden = true
         emptyListGreetingStackView.isHidden = true
         if purchases!.count == 0 {
             switchGreetingVisibility(show: true)
@@ -73,7 +60,8 @@ class DetailedListViewController: UIViewController, UITableViewDelegate, UITable
         if segue.identifier == "addPurchaseMenu" {
             let vc = segue.destination as! addPurchaseUIViewController
             vc.shoppingList = shoppingList
-            vc.purchasesTableView = tableView
+            vc.purchasesTableView = tableView.self
+            vc.shoppingListDelegate = shoppingListDelegate
         }
     }
 }
@@ -81,6 +69,11 @@ class DetailedListViewController: UIViewController, UITableViewDelegate, UITable
 //MARK: - tableView delegate
 extension DetailedListViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if purchases?.count ?? 0 > 0 && self.tableView.isHidden {
+            switchGreetingVisibility(show: false)
+        }
+        
         return purchases?.count ?? 0
     }
     

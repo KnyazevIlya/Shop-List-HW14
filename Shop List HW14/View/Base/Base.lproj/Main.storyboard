@@ -408,7 +408,7 @@
                                         <rect key="frame" x="40" y="143.5" width="358" height="31.5"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new purchase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PNO-PR-8gL">
                                         <rect key="frame" x="40" y="40" width="301" height="46"/>
@@ -452,10 +452,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0zB-Bj-DcE" userLabel="parameters stack">
-                                <rect key="frame" x="106" y="216" width="292" height="128"/>
+                                <rect key="frame" x="106" y="216" width="292" height="126"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="d69-h0-Ppk" userLabel="amount stack">
-                                        <rect key="frame" x="0.0" y="0.0" width="292" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="292" height="59"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xS-pS-R7k">
                                                 <rect key="frame" x="0.0" y="0.0" width="292" height="20.5"/>
@@ -466,19 +466,19 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="purchase amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="axl-cq-8XB">
                                                 <rect key="frame" x="0.0" y="23.5" width="292" height="30.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="continue"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgW-sv-Vlq" userLabel="line">
-                                                <rect key="frame" x="0.0" y="57" width="292" height="3"/>
+                                                <rect key="frame" x="0.0" y="57" width="292" height="2"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="3" id="c0B-ca-d4l"/>
+                                                    <constraint firstAttribute="height" constant="2" id="c0B-ca-d4l"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="HGP-im-RbR" userLabel="measurement stack">
-                                        <rect key="frame" x="0.0" y="68" width="292" height="60"/>
+                                        <rect key="frame" x="0.0" y="67" width="292" height="59"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="measurement" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nl1-yd-1TN">
                                                 <rect key="frame" x="0.0" y="0.0" width="292" height="20.5"/>
@@ -489,13 +489,13 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="purchase mesure" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VFn-LV-iNb">
                                                 <rect key="frame" x="0.0" y="23.5" width="292" height="30.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xoe-Sl-n5a" userLabel="line">
-                                                <rect key="frame" x="0.0" y="57" width="292" height="3"/>
+                                                <rect key="frame" x="0.0" y="57" width="292" height="2"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="3" id="mGr-H7-FP7"/>
+                                                    <constraint firstAttribute="height" constant="2" id="mGr-H7-FP7"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
