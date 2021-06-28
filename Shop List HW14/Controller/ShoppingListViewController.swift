@@ -30,6 +30,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         super.viewWillAppear(animated)
         
         setNavigationBarVisibility(visible: true, animated: animated)
+        navigationController?.navigationBar.barTintColor = UIColor(hex: "3CCE64")
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
     override func viewDidLoad() {
@@ -41,10 +44,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        /*tableView.dragInteractionEnabled = true
-        tableView.dragDelegate = self
-        tableView.dropDelegate = self*/
         
         let floatingButton = floatingAddUIButton(self, zoomOnTouch: true)
         floatingButton.addTarget(self, action: #selector(performAddListSegue), for: .touchUpInside)

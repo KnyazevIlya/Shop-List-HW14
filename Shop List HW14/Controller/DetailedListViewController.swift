@@ -20,6 +20,8 @@ class DetailedListViewController: UIViewController, UITableViewDelegate, UITable
     var shoppingListDelegate: dataReloadProtocol?
     
     private let floatingButton = floatingAddUIButton()
+    private var uncheckedPurchases: Results<Purchase>!
+    private var checkedPurchses: Results<Purchase>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,12 @@ class DetailedListViewController: UIViewController, UITableViewDelegate, UITable
         
         configurateInitialVisibility()
         configurateFloatingButton()
+        filterData()
+    }
+    
+    private func filterData() {
+        checkedPurchses = shoppingList.purchases.filter("isCompleted = true")
+        uncheckedPurchases = shoppingList.purchases.filter("isCompleted = false")
     }
     
     //MARK: - initial styling
@@ -83,15 +91,15 @@ extension DetailedListViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "purchaseCell", for: indexPath) as! PurchaseTableViewCell
-        if let purchase = purchases?[indexPath.row] {
-            cell.purcheseNameLabel.text = purchase.name
-            cell.purchaseAmountLabel.text = "\(purchase.amount) \(purchase.measurement)"
-            cell.tableView = tableView.self
-            cell.shoppingList = shoppingList
-            cell.indexInShoppingList = shoppingList.purchases.index(of: purchase)
-            cell.shoppingListIndex = shoppingListIndex
-            cell.shoppingListViewDelegate = shoppingListDelegate
-        }
+        let purchase = indexPath.row > uncheckedPurchases.count - 1 ? checkedPurchses[indexPath.row - uncheckedPurchases.count] : uncheckedPurchases[indexPath.row]
+        
+        cell.purcheseNameLabel.text = purchase.name
+        cell.purchaseAmountLabel.text = "\(purchase.amount) \(purchase.measurement)"
+        cell.tableView = tableView.self
+        cell.shoppingList = shoppingList
+        cell.indexInShoppingList = shoppingList.purchases.index(of: purchase)
+        cell.shoppingListIndex = shoppingListIndex
+        cell.shoppingListViewDelegate = shoppingListDelegate
 
         return cell
     }
@@ -99,21 +107,35 @@ extension DetailedListViewController {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-}
-
-//MARK: - handle insertion
-extension DetailedListViewController {
-    private func handleInsertion(insertion: Int) {
-        let objects = StorageManager.realm.objects(ShoppingList.self)
-        guard let index = shoppingListIndex else { return }
-        shoppingList = objects[index]
-        purchases = shoppingList.purchases
+    
+    //MARK: - contextual actions
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = self.delete(rowIndexPathAt: indexPath)
+        let swipe = UISwipeActionsConfiguration(actions: [delete])
         
-        if insertion == 0 {
-            switchGreetingVisibility(show: false)
+        return swipe
+    }
+    
+    private func delete(rowIndexPathAt indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "Delete") { [self] (_, _, _) in
+            DispatchQueue.main.async {
+                
+                let purchase = indexPath.row > uncheckedPurchases.count - 1 ? checkedPurchses[indexPath.row - uncheckedPurchases.count] : uncheckedPurchases[indexPath.row]
+                let loadChange = purchase.isCompleted ? shoppingList.load - 1 : shoppingList.load
+                
+                StorageManager.deletePurchase(from: shoppingList, purchase: purchase)
+                StorageManager.updateList(shoppingList, property: .maxLoad, value: self.shoppingList.maxLoad - 1)
+                StorageManager.updateList(shoppingList, property: .load, value: loadChange)
+                
+                
+                shoppingList = StorageManager.realm.objects(ShoppingList.self)[shoppingListIndex!]
+                purchases = shoppingList.purchases
+                
+                tableView.reloadData()
+                shoppingListDelegate!.reloadData()
+                //tableView.deleteRows(at: , with: ) не работает, оно валится где-то(
+            }
         }
-        tableView.insertRows(at: [IndexPath(row: insertion - 1, section: 0)], with: .left)
-        
-        shoppingListDelegate?.reloadData()
+        return action
     }
 }

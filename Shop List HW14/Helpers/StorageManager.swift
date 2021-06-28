@@ -72,6 +72,13 @@ class StorageManager {
         }
     }
     
+    static func deletePurchase(from shoppingList: ShoppingList, purchase: Purchase) {
+        try! realm.write {
+            guard let index = shoppingList.purchases.index(of: purchase) else { return }
+            shoppingList.purchases.remove(at: index)
+        }
+    }
+    
     func tryToCast<T>(_ value: Any, type: T.Type) -> T? {
         guard let castedValue = value as? T else { return nil }
         return castedValue

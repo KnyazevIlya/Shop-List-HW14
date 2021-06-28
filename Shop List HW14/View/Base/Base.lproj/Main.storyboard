@@ -262,6 +262,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TdA-fm-fyA"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="tintColor" red="0.23529411764705882" green="0.80784313725490198" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TdA-fm-fyA" firstAttribute="trailing" secondItem="frS-Uf-qCE" secondAttribute="trailing" constant="16" id="ANa-9g-7X8"/>
                             <constraint firstItem="UtF-Ds-Kez" firstAttribute="top" secondItem="TdA-fm-fyA" secondAttribute="top" constant="20" id="Ory-wp-8dn"/>
@@ -549,7 +550,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nmi-6S-M2y"/>
+        <segue reference="eFa-3t-DH3"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemGreenColor"/>
     <resources>

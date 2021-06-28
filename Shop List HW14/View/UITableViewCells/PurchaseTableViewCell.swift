@@ -71,4 +71,6 @@ class PurchaseTableViewCell: UITableViewCell {
             shoppingListViewDelegate.reloadData()
         }
     }
+    
+    
 }
