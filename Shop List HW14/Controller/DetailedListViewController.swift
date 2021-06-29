@@ -15,29 +15,32 @@ class DetailedListViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var emptyListGreetingStackView: UIStackView!
     
     var shoppingList: ShoppingList!
-    var purchases: List<Purchase>?
-    var shoppingListIndex: Int?
-    var shoppingListDelegate: dataReloadProtocol?
+    var purchases: List<Purchase>!
+    //var shoppingListIndex: Int?
+    var shoppingListDelegate: dataReloadProtocol!
     
     private let floatingButton = floatingAddUIButton()
     private var uncheckedPurchases: Results<Purchase>!
-    private var checkedPurchses: Results<Purchase>!
+    private var checkedPurchases: Results<Purchase>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = shoppingList.name
-        
+        purchases = shoppingList.purchases
         tableView.dataSource = self
         tableView.delegate = self
         
         configurateInitialVisibility()
         configurateFloatingButton()
+        
         filterData()
+        
     }
     
+    //MARK: - private methods
     private func filterData() {
-        checkedPurchses = shoppingList.purchases.filter("isCompleted = true")
+        checkedPurchases = shoppingList.purchases.filter("isCompleted = true")
         uncheckedPurchases = shoppingList.purchases.filter("isCompleted = false")
     }
     
@@ -53,7 +56,7 @@ class DetailedListViewController: UIViewController, UITableViewDelegate, UITable
     
     private func configurateInitialVisibility() {
         emptyListGreetingStackView.isHidden = true
-        if purchases!.count == 0 {
+        if purchases.count == 0 {
             switchGreetingVisibility(show: true)
         }
     }
@@ -78,27 +81,39 @@ class DetailedListViewController: UIViewController, UITableViewDelegate, UITable
     }
 }
 
-//MARK: - tableView delegate
+//MARK: - tableView data source
 extension DetailedListViewController {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if purchases?.count ?? 0 > 0 && self.tableView.isHidden {
+        if purchases.count > 0 && self.tableView.isHidden {
             switchGreetingVisibility(show: false)
         }
         
-        return purchases?.count ?? 0
+        return section == 0 ? uncheckedPurchases.count : checkedPurchases.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return uncheckedPurchases.count == 0 ? nil : "To buy"
+        } else {
+            return checkedPurchases.count == 0 ? nil : "Baught"
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "purchaseCell", for: indexPath) as! PurchaseTableViewCell
-        let purchase = indexPath.row > uncheckedPurchases.count - 1 ? checkedPurchses[indexPath.row - uncheckedPurchases.count] : uncheckedPurchases[indexPath.row]
+        let purchase = indexPath.section == 0 ? uncheckedPurchases[indexPath.row] : checkedPurchases[indexPath.row]
         
         cell.purcheseNameLabel.text = purchase.name
         cell.purchaseAmountLabel.text = "\(purchase.amount) \(purchase.measurement)"
         cell.tableView = tableView.self
         cell.shoppingList = shoppingList
         cell.indexInShoppingList = shoppingList.purchases.index(of: purchase)
-        cell.shoppingListIndex = shoppingListIndex
         cell.shoppingListViewDelegate = shoppingListDelegate
 
         return cell
@@ -120,7 +135,7 @@ extension DetailedListViewController {
         let action = UIContextualAction(style: .destructive, title: "Delete") { [self] (_, _, _) in
             DispatchQueue.main.async {
                 
-                let purchase = indexPath.row > uncheckedPurchases.count - 1 ? checkedPurchses[indexPath.row - uncheckedPurchases.count] : uncheckedPurchases[indexPath.row]
+                let purchase = indexPath.row > uncheckedPurchases.count - 1 ? checkedPurchases[indexPath.row - uncheckedPurchases.count] : uncheckedPurchases[indexPath.row]
                 let loadChange = purchase.isCompleted ? shoppingList.load - 1 : shoppingList.load
                 
                 StorageManager.deletePurchase(from: shoppingList, purchase: purchase)
@@ -128,8 +143,8 @@ extension DetailedListViewController {
                 StorageManager.updateList(shoppingList, property: .load, value: loadChange)
                 
                 
-                shoppingList = StorageManager.realm.objects(ShoppingList.self)[shoppingListIndex!]
-                purchases = shoppingList.purchases
+                /*shoppingList = StorageManager.realm.objects(ShoppingList.self)[shoppingListIndex!]
+                purchases = shoppingList.purchases*/
                 
                 tableView.reloadData()
                 shoppingListDelegate!.reloadData()

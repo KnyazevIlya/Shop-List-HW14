@@ -65,7 +65,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 let vc = segue.destination as! DetailedListViewController
                 vc.shoppingList = shoppingLists[indexPath.row]
                 vc.purchases = shoppingLists[indexPath.row].purchases
-                vc.shoppingListIndex = indexPath.row
                 vc.shoppingListDelegate = self
             }
         }
@@ -73,7 +72,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
 }
 
 
-//MARK: - table view delegate
+//MARK: - table view data source
 extension ShoppingListViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

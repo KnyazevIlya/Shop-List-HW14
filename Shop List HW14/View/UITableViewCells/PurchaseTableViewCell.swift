@@ -16,7 +16,7 @@ class PurchaseTableViewCell: UITableViewCell {
     var tableView: UITableView?
     var shoppingList: ShoppingList?
     var indexInShoppingList: Int?
-    var shoppingListIndex: Int?
+    //var shoppingListIndex: Int?
     var shoppingListViewDelegate: dataReloadProtocol?
 
     override func awakeFromNib() {
@@ -48,7 +48,6 @@ class PurchaseTableViewCell: UITableViewCell {
     @objc func handleCheckBoxStateChange() {
         guard let shoppingList = shoppingList,
               let indexInShoppingList = indexInShoppingList,
-              let shoppingListIndex = shoppingListIndex,
               let tableView = tableView,
               let shoppingListViewDelegate = shoppingListViewDelegate else { return }
         
@@ -63,8 +62,8 @@ class PurchaseTableViewCell: UITableViewCell {
             }
             StorageManager.updateList(shoppingList, property: .load, value: newLoad)
             
-            let objects = StorageManager.realm.objects(ShoppingList.self)
-            self.shoppingList = objects[shoppingListIndex]
+            //let objects = StorageManager.realm.objects(ShoppingList.self)
+            //self.shoppingList = objects[shoppingListIndex]
             self.setBackgroundIfCompleted()
             
             tableView.reloadData()
