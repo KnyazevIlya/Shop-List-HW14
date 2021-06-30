@@ -149,22 +149,6 @@ extension DetailedListViewController {
                 filterData()
                 tableView.reloadData()
                 shoppingListDelegate!.reloadData()
-                
-                /*
-                 let purchase = indexPath.row > uncheckedPurchases.count - 1 ? checkedPurchses[indexPath.row - uncheckedPurchases.count] : uncheckedPurchases[indexPath.row]
-                 let loadChange = purchase.isCompleted ? shoppingList.load - 1 : shoppingList.load
-                 
-                 StorageManager.deletePurchase(from: shoppingList, purchase: purchase)
-                 StorageManager.updateList(shoppingList, property: .maxLoad, value: self.shoppingList.maxLoad - 1)
-                 StorageManager.updateList(shoppingList, property: .load, value: loadChange)
-                 
-                 
-                 shoppingList = StorageManager.realm.objects(ShoppingList.self)[shoppingListIndex!]
-                 purchases = shoppingList.purchases
-                 
-                 tableView.reloadData()
-                 shoppingListDelegate!.reloadData()
-                 */
             }
         }
         return action
