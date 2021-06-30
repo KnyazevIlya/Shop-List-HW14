@@ -84,11 +84,8 @@ class OnboardViewController: UIViewController {
     }
 
     @IBAction func didTapGetStarted(_ sender: Any) {
-        //animateWidgetsDisappearance()
-        
-        //DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            //sleep(1)
+        UserDefaults.standard.set(true, forKey: "OnboardingPassed")
+        print(UserDefaults.standard.value(forKey: "OnboardingPassed") as! Bool)
         performSegue(withIdentifier: "toShoppingList", sender: sender)
-        //}
     }
 }

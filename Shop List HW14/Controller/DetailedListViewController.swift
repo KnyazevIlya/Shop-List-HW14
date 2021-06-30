@@ -20,8 +20,8 @@ class DetailedListViewController: UIViewController, UITableViewDelegate, UITable
     var shoppingListDelegate: dataReloadProtocol!
     
     private let floatingButton = floatingAddUIButton()
-    private var uncheckedPurchases: Results<Purchase>!
-    private var checkedPurchases: Results<Purchase>!
+    private var uncheckedPurchases: Array<Purchase>!
+    private var checkedPurchases: Array<Purchase>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +40,8 @@ class DetailedListViewController: UIViewController, UITableViewDelegate, UITable
     
     //MARK: - private methods
     private func filterData() {
-        checkedPurchases = shoppingList.purchases.filter("isCompleted = true")
-        uncheckedPurchases = shoppingList.purchases.filter("isCompleted = false")
+        checkedPurchases = Array(shoppingList.purchases.filter("isCompleted = true"))
+        uncheckedPurchases = Array(shoppingList.purchases.filter("isCompleted = false"))
     }
     
     //MARK: - initial styling
@@ -142,13 +142,14 @@ extension DetailedListViewController {
                 StorageManager.updateList(shoppingList, property: .maxLoad, value: self.shoppingList.maxLoad - 1)
                 StorageManager.updateList(shoppingList, property: .load, value: loadChange)
                 
-                
-                /*shoppingList = StorageManager.realm.objects(ShoppingList.self)[shoppingListIndex!]
-                purchases = shoppingList.purchases*/
-                
-                tableView.reloadData()
                 shoppingListDelegate!.reloadData()
-                //tableView.deleteRows(at: , with: ) не работает, оно валится где-то(
+                filterData()
+            }
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.endUpdates()
             }
         }
         return action

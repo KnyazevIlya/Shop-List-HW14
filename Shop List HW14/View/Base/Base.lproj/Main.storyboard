@@ -12,7 +12,7 @@
         <!--Onboard View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="OnboardViewController" customModule="Shop_List_HW14" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingVC" id="BYZ-38-t0r" customClass="OnboardViewController" customModule="Shop_List_HW14" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -468,7 +468,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="purchase amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="axl-cq-8XB">
                                                 <rect key="frame" x="0.0" y="23.5" width="292" height="30.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="continue"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="continue"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgW-sv-Vlq" userLabel="line">
                                                 <rect key="frame" x="0.0" y="57" width="292" height="2"/>
@@ -532,7 +532,7 @@
         <!--Navigation Controller-->
         <scene sceneID="EBF-Zn-L4B">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MVp-4J-13N" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ShoppingListsVC" automaticallyAdjustsScrollViewInsets="NO" id="MVp-4J-13N" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="p3M-Q1-UJt"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6vX-x7-BM1">
@@ -550,7 +550,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eFa-3t-DH3"/>
+        <segue reference="nmi-6S-M2y"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemGreenColor"/>
     <resources>
