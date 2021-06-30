@@ -16,7 +16,6 @@ class DetailedListViewController: UIViewController, UITableViewDelegate, UITable
     
     var shoppingList: ShoppingList!
     var purchases: List<Purchase>!
-    //var shoppingListIndex: Int?
     var shoppingListDelegate: dataReloadProtocol!
     
     private let floatingButton = floatingAddUIButton()
@@ -135,15 +134,37 @@ extension DetailedListViewController {
         let action = UIContextualAction(style: .destructive, title: "Delete") { [self] (_, _, _) in
             DispatchQueue.main.async {
                 
-                let purchase = indexPath.row > uncheckedPurchases.count - 1 ? checkedPurchases[indexPath.row - uncheckedPurchases.count] : uncheckedPurchases[indexPath.row]
+                let purchase: Purchase
+                if indexPath.section == 0 {
+                    purchase = uncheckedPurchases[indexPath.row]
+                } else {
+                    purchase = checkedPurchases[indexPath.row]
+                }
                 let loadChange = purchase.isCompleted ? shoppingList.load - 1 : shoppingList.load
                 
                 StorageManager.deletePurchase(from: shoppingList, purchase: purchase)
                 StorageManager.updateList(shoppingList, property: .maxLoad, value: self.shoppingList.maxLoad - 1)
                 StorageManager.updateList(shoppingList, property: .load, value: loadChange)
                 
+                filterData()
                 tableView.reloadData()
                 shoppingListDelegate!.reloadData()
+                
+                /*
+                 let purchase = indexPath.row > uncheckedPurchases.count - 1 ? checkedPurchses[indexPath.row - uncheckedPurchases.count] : uncheckedPurchases[indexPath.row]
+                 let loadChange = purchase.isCompleted ? shoppingList.load - 1 : shoppingList.load
+                 
+                 StorageManager.deletePurchase(from: shoppingList, purchase: purchase)
+                 StorageManager.updateList(shoppingList, property: .maxLoad, value: self.shoppingList.maxLoad - 1)
+                 StorageManager.updateList(shoppingList, property: .load, value: loadChange)
+                 
+                 
+                 shoppingList = StorageManager.realm.objects(ShoppingList.self)[shoppingListIndex!]
+                 purchases = shoppingList.purchases
+                 
+                 tableView.reloadData()
+                 shoppingListDelegate!.reloadData()
+                 */
             }
         }
         return action
