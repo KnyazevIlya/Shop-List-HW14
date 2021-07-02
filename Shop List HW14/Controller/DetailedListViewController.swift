@@ -133,19 +133,14 @@ extension DetailedListViewController {
     private func delete(rowIndexPathAt indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { [self] (_, _, _) in
             DispatchQueue.main.async {
-                
-                let purchase: Purchase
-                if indexPath.section == 0 {
-                    purchase = uncheckedPurchases[indexPath.row]
-                } else {
-                    purchase = checkedPurchases[indexPath.row]
-                }
+                print(purchases.count)
+                let purchase = indexPath.section == 0 ? uncheckedPurchases[indexPath.row] : checkedPurchases[indexPath.row]
                 let loadChange = purchase.isCompleted ? shoppingList.load - 1 : shoppingList.load
                 
                 StorageManager.deletePurchase(from: shoppingList, purchase: purchase)
                 StorageManager.updateList(shoppingList, property: .maxLoad, value: self.shoppingList.maxLoad - 1)
                 StorageManager.updateList(shoppingList, property: .load, value: loadChange)
-                
+                print(purchases.count)
                 filterData()
                 tableView.reloadData()
                 shoppingListDelegate!.reloadData()

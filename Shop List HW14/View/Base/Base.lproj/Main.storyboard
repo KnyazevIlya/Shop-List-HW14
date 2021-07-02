@@ -242,6 +242,7 @@
                                     <constraint firstItem="UtQ-YM-Ldf" firstAttribute="top" secondItem="B0Z-P4-TnE" secondAttribute="bottom" constant="25" id="POq-hz-Np1"/>
                                     <constraint firstAttribute="trailing" secondItem="3K6-Rc-5h8" secondAttribute="trailing" constant="17" id="Xzy-Sd-nKj"/>
                                     <constraint firstItem="B0Z-P4-TnE" firstAttribute="top" secondItem="3K6-Rc-5h8" secondAttribute="bottom" constant="3" id="aBO-NW-TnV"/>
+                                    <constraint firstItem="UtQ-YM-Ldf" firstAttribute="leading" relation="lessThanOrEqual" secondItem="frS-Uf-qCE" secondAttribute="leading" constant="312" id="cvV-NY-iWX"/>
                                     <constraint firstItem="B0Z-P4-TnE" firstAttribute="leading" secondItem="frS-Uf-qCE" secondAttribute="leading" constant="16" id="h5o-hw-vTV"/>
                                 </constraints>
                             </view>
@@ -422,10 +423,10 @@
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <color key="tintColor" red="0.23529411759999999" green="0.80784313730000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="0PP-i6-PXp" secondAttribute="trailing" constant="16" id="95k-5d-AI6"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="0PP-i6-PXp" secondAttribute="trailing" constant="16" id="95k-5d-AI6"/>
                                     <constraint firstItem="Ogh-VS-jw2" firstAttribute="top" secondItem="0PP-i6-PXp" secondAttribute="bottom" constant="8" symbolic="YES" id="Fwz-Al-qAr"/>
                                     <constraint firstItem="PNO-PR-8gL" firstAttribute="leading" secondItem="kDs-DZ-R1M" secondAttribute="leading" constant="40" id="MZm-6Z-V5J"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ogh-VS-jw2" secondAttribute="trailing" constant="16" id="Ob9-cd-Zt7"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Ogh-VS-jw2" secondAttribute="trailing" constant="16" id="Ob9-cd-Zt7"/>
                                     <constraint firstAttribute="height" constant="200" id="QM0-qF-IiR"/>
                                     <constraint firstItem="Ogh-VS-jw2" firstAttribute="leading" secondItem="kDs-DZ-R1M" secondAttribute="leading" constant="40" id="c7F-jw-yuW"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PNO-PR-8gL" secondAttribute="trailing" constant="16" id="cyB-tl-PBw"/>
